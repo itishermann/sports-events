@@ -1,0 +1,50 @@
+package com.etna.sportevents.payloads.request;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
+public class RegisterPayload {
+    @NotBlank(message = "Username is required")
+    @Size(min = 3, max = 255, message = "Username must be between 3 and 255 characters long")
+    private String username;
+
+    @NotBlank(message = "Password is required")
+    @Size(min = 8, message = "Password must be at least 8 characters long")
+    private String password;
+
+    @NotBlank(message = "Email is required")
+    private String email;
+
+    public RegisterPayload() {
+    }
+
+    public RegisterPayload(String username, String password, String email) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+}
